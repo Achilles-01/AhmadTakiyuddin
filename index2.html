@@ -1,0 +1,486 @@
+<script>
+  const allowedPassword = "123"; // Ubah ini sesuai keinginan
+
+  const userInput = prompt("Masukkan password untuk mengakses situs ini:");
+
+  if (userInput !== allowedPassword) {
+    alert("Password salah. Akses ditolak.");
+    window.location.href = "https://google.com"; // Atau biarkan kosong untuk menutup
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pribadi Saya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-pic {
+            transition: all 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .data-card {
+            transition: all 0.3s ease;
+        }
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .animated-bg {
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-user-circle text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Data Pribadi</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Tentang</a>
+                    <a href="#data" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Data Saya</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Kontak</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">About</a>
+                <a href="#data" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">My Data</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="animated-bg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Data Diri Anda</h1>
+                    <p class="text-xl mb-8">Cara aman untuk mengelola dan memvisualisasikan informasi pribadi Anda</p>
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                        Jelajahi Data Anda
+                    </button>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-white bg-opacity-20 rounded-full absolute -top-5 -left-5"></div>
+                        <div class="w-64 h-64 bg-white bg-opacity-10 rounded-full absolute -bottom-5 -right-5"></div>
+                        <img src="https://tajukkelana.com/wp-content/uploads/2021/09/Gambar-Kucing-Imut-dan-Lucu-3.jpg" 
+                             alt="Profile" 
+                             class="profile-pic w-64 h-64 rounded-full object-cover border-4 border-white shadow-xl relative">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Tentang Data Diri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl data-card">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fa-solid fa-user-secret text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Deskripsi Diri Singkat</h3>
+                    <p class="text-gray-600">Mahasiswa Teknik Informasi yang memiliki minat besar di bidang keamanan siber dan pengembangan web.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl data-card">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fa-sharp fa-solid fa-calendar text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Pendidikan Terakhir atau Sedang Ditempuh</h3>
+                    <p class="text-gray-600">Mahasiswa semester 4, Program Studi Teknik Informasi, Universitas UNTARA.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl data-card">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fa-solid fa-face-smile text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Hobi</h3>
+                    <p class="text-gray-600">Saya sangat suka dengan yang namanya OLAHRAGA terutama Sepak Bola.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section id="data" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Data Pribadi Saya</h2>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Informasi Dasar</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Nama Lengkap</label>
+                            <p class="text-gray-800 font-medium">Ahmad Takiyuddin</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Tanggal Lahir</label>
+                            <p class="text-gray-800 font-medium">01 Januari, 1999</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Jenis Kelamin</label>
+                            <p class="text-gray-800 font-medium">Laki-Laki</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Kebangsaan</label>
+                            <p class="text-gray-800 font-medium">Indonesia</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Status Pernikahan</label>
+                            <p class="text-gray-800 font-medium">Belum Menikah</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Tipe Darah</label>
+                            <p class="text-gray-800 font-medium">X</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Informasi Kontak</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Email</label>
+                                <p class="text-gray-800 font-medium">ahmadhallow4@gmail01.com</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Telepon</label>
+                                <p class="text-gray-800 font-medium">(+62) 83812345</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Alamat</label>
+                                <p class="text-gray-800 font-medium">Kp. Kaluwung RT.99/RW.44  Ds. Cisereh</p>
+                                <p class="text-gray-800 font-medium">Kec. Tigaraksa Kab. Tangerang, 15729</p>
+                                <p class="text-gray-800 font-medium">Prov. Banten</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Informasi Profesional Saya</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Pendidikan</label>
+                                <p class="text-gray-800 font-medium">Mahasiswa</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Universitas</label>
+                                <p class="text-gray-800 font-medium">UNTARA</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Pendidikan Sebelumnya</label>
+                                <p class="text-gray-800 font-medium">SMKN 4 Kab. Tangerang, 2023</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500 mb-1">Kemampuan</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Coding</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Olahraga</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Gaming</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Informasi Kesehatan</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Tinggi Badan</label>
+                            <p class="text-gray-800 font-medium">175 cm (5'9" feet)</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Berat Badan</label>
+                            <p class="text-gray-800 font-medium">54 kg (117 lbs)</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Alergi</label>
+                            <p class="text-gray-800 font-medium">Kacang, Debu</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Dokter Utama</label>
+                            <p class="text-gray-800 font-medium">Dr. Nama Palsu</p>
+                            <p class="text-gray-800 font-medium">(+62) 9876543</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500 mb-1">Terakhir Periksa</label>
+                            <p class="text-gray-800 font-medium">01 Juni, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Kontak Saya</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Hubungin Saya</h3>
+                    <p class="text-gray-600 mb-8">Hubungi saya jika memiliki pertanyaan tentang data pribadi saya atau jika anda ingin terhubung secara profesional.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">Email</h4>
+                                <p class="text-gray-800 font-medium">ahmadhallow4@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-lg p-3">
+                                <i class="fas fa-phone-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">Telepon</h4>
+                                <p class="text-gray-800 font-medium">(+62) 83812345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-pink-100 rounded-lg p-3">
+                                <i class="fas fa-map-marker-alt text-pink-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">Lokasi</h4>
+                                <p class="text-gray-800 font-medium">Indonesia, BNT</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-sm font-medium text-gray-500 mb-3">Sosial Media</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://wa.me/6289522901711" target="_blank" class="bg-gray-100 hover:bg-green-100 text-green-500 w-10 h-10 rounded-full flex items-center justify-center">                                
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/aateye01" target="_blank" class="bg-gray-100 hover:bg-pink-100 text-pink-500 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/Yudi" target="_blank" class="bg-gray-100 hover:bg-blue-600 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+    <section>
+        <div>
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">Kirim Pesan</h3>
+                <form action="https://formsubmit.co/ahmadhallow4@gmail.com" method="POST">
+                <!-- optional: disable CAPTCHA -->
+                    <input type="hidden" name="_captcha" value="false">
+                
+                    <!-- optional: redirect after success -->
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+
+                    <div class="mb-6">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Anda</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Anda</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Tentang Anda</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan Anda</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Data Pribadi</h3>
+                    <p class="text-gray-400">Perkenalkan nama saya Ahmad Takiyuddin</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tentang</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">Tentang</a></li>
+                        <li><a href="#data" class="text-gray-400 hover:text-white">Data Saya</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Kontak</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Info Kontak</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-sm"></i>
+                            <span>Kp. Kaluwung RT.99/RW.44 Ds. Cisereh, 15729</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-sm"></i>
+                            <span>(+62)83812345</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-sm"></i>
+                            <span>ahmadhallow4@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Pesan saya</h3>
+                    <p class="text-gray-400 mb-4">Hidup lah tanpa melewati batas</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Data Pribadi. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="https://wa.me/6289522901711" target="_blank" class="bg-gray-100 hover:bg-green-100 text-green-500 w-10 h-10 rounded-full flex items-center justify-center">                                
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/aateye01" target="_blank" class="bg-gray-100 hover:bg-pink-100 text-pink-500 w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/Ahmad Takiyudin" target="_blank" class="bg-gray-100 hover:bg-blue-600 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Animate data cards on scroll
+        const animateOnScroll = () => {
+            const dataCards = document.querySelectorAll('.data-card');
+            
+            dataCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        document.querySelectorAll('.data-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
